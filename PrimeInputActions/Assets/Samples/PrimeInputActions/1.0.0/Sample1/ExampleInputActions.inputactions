@@ -1,0 +1,134 @@
+{
+    "name": "ExampleInputActions",
+    "maps": [
+        {
+            "name": "ui",
+            "id": "e476793d-392f-41fa-9442-16c86d7c5b03",
+            "actions": [
+                {
+                    "name": "cancel",
+                    "type": "Button",
+                    "id": "f88fcdd1-b9d2-424d-a2dc-9e057367479e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "03931874-25c0-435c-8efa-3329196977a7",
+                    "path": "*/{Cancel}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "shortcuts",
+            "id": "cdadc9af-cda2-4b00-a3f5-1bbda2a23a90",
+            "actions": [
+                {
+                    "name": "save",
+                    "type": "Button",
+                    "id": "ea01cb4a-00e4-4111-83a6-aeb28849ca4e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "saveAs",
+                    "type": "PassThrough",
+                    "id": "bf77da32-347c-46aa-abb4-b462a4be3592",
+                    "expectedControlType": "Digital",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "Ctrl+S",
+                    "id": "2cf55550-9129-4435-bfcb-99eb32ccfec9",
+                    "path": "ButtonWithOneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "save",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "a929d41a-950e-4c39-8b2f-4a903d203458",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "save",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "button",
+                    "id": "3282bae1-8740-41a3-a4fc-2c0110a30144",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "save",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Button With Two Modifiers",
+                    "id": "e7bec34f-200a-4077-a9d2-5d1224121bdc",
+                    "path": "ButtonWithTwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "saveAs",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "794287e5-911e-4148-9c3e-21b0c7acf6d4",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "saveAs",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "8f22b7e0-792f-4fb8-9fe8-f8ab844766c8",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "saveAs",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "button",
+                    "id": "34c3bcc9-13a4-42cc-82ec-75dfdc4b2398",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "saveAs",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

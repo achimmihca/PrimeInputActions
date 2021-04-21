@@ -1,0 +1,19 @@
+{
+    "name": "com.achimmihca.Editor.primeinputactions",
+    "references": [
+		"Unity.InputSystem",
+		"UniRx",
+		"com.achimmihca.primeinputactions"
+    ],
+    "includePlatforms": [
+		"Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

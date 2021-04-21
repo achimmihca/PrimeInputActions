@@ -1,0 +1,17 @@
+{
+    "name": "com.achimmihca.primeinputactions.sample1",
+    "references": [
+        "Unity.InputSystem",
+        "UniRx",
+		"com.achimmihca.primeinputactions"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

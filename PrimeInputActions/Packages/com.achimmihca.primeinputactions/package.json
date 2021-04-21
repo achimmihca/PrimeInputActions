@@ -1,0 +1,32 @@
+{
+    "name": "com.achimmihca.primeinputactions",
+    "version": "1.0.0",
+    "displayName": "PrimeInputActions",
+    "description": "Tools for Unity's InputActions",
+    "dependencies": {
+    },
+    "keywords": [
+      "input",
+	  "actions",
+      "prime",
+      "priority",
+      "queue",
+      "cancel",
+      "cancellation",
+	  "observable",
+	  "unirx",
+	  "constant"
+    ],
+    "author": {
+      "name": "Andreas Stange",
+      "email": "anst.dev@gmail.com",
+      "url": "https://github.com/achimmihca/PrimeInputActions"
+    },
+	"samples": [
+    {
+     "displayName": "Sample1",
+     "description": "Example how to use PrimeInputActions",
+     "path": "Samples~/SampleFolder1"
+    }]
+}
+  
