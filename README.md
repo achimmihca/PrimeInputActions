@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/achimmihca/PrimeInputActions.svg?branch=main)](https://travis-ci.org/achimmihca/PrimeInputActions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/achimmihca/PrimeInputActions/blob/main/LICENSE)
+
 # PrimeInputActions
 Augment Unity's InputActions with
 
