@@ -11,11 +11,18 @@ public class SampleSceneDemoControl : MonoBehaviour
     
     private void Start()
     {
-        PrepareConflict1();
-        PrepareConflict2();
+        // Compose events using UniRx's reactive API
+        var clickStream = InputManager.GetInputAction(R.InputActions.ui_click).PerformedAsObservable();
+        clickStream.Buffer(clickStream.Throttle(TimeSpan.FromMilliseconds(250)))
+            .Where(xs => xs.Count >= 2)
+            .Subscribe(xs => Debug.Log("Double click detected! Count:" + xs.Count));
+
+        // Examples how to solve typical conflicts when using Unity's InputActions.
+        ConflictingInputActions1();
+        ConflictingInputActions2();
     }
 
-    private void PrepareConflict1()
+    private void ConflictingInputActions1()
     {
         // Conflict: Different behaviour is bound to the same InputAction
         // -> Example: "close dialog" vs "exit application" (both triggered with Escape key)
@@ -34,7 +41,7 @@ public class SampleSceneDemoControl : MonoBehaviour
             .Subscribe(callbackContext => QuitOrStopPlayMode());
     }
     
-    private void PrepareConflict2()
+    private void ConflictingInputActions2()
     {
         // Conflict: one InputAction is a part of another
         // -> Example: "save" vs "save as" (Ctrl+S vs Shift+Ctrl+S)

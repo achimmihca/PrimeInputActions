@@ -6,5 +6,6 @@ public static partial class R
         public static readonly string shortcuts_save = "shortcuts/save";
         public static readonly string shortcuts_saveAs = "shortcuts/saveAs";
         public static readonly string ui_cancel = "ui/cancel";
+        public static readonly string ui_click = "ui/click";
     }
 }
