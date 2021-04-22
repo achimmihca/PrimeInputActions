@@ -9,7 +9,7 @@ export BUILD_PATH=/project/Builds/$BUILD_TARGET/
 mkdir -p $BUILD_PATH
 
 /opt/unity/Editor/Unity \
-    -projectPath "$(pwd)/PrimInputActions" \
+    -projectPath "$(pwd)/PrimeInputActions" \
     -quit \
     -batchmode \
     -nographics \
@@ -36,4 +36,4 @@ fi
 ls -la "$BUILD_PATH"
 
 
-tar -zcf /project/PrimInputActions-build.tar.gz /project/Builds/
+tar -zcf /project/PrimeInputActions-build.tar.gz /project/Builds/

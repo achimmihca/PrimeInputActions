@@ -3,7 +3,7 @@
 set -x
 
 /opt/unity/Editor/Unity \
-    -projectPath "$(pwd)/PrimInputActions" \
+    -projectPath "$(pwd)/PrimeInputActions" \
     -runTests \
     -testPlatform $TEST_PLATFORM \
     -testResults $(pwd)/$TEST_PLATFORM-results.xml \
