@@ -21,7 +21,7 @@ namespace PrimeInputActions
 
         private static readonly string indentation = "    ";
 
-        [MenuItem("Generate/Generate C# constants for InputAction paths")]
+        // [MenuItem("Generate/Generate C# constants for InputAction paths")]
         public static void CreateInputActionConstants()
         {
             InputManager inputManager = InputManager.Instance;
@@ -30,7 +30,7 @@ namespace PrimeInputActions
                 Debug.LogError("No InputManager found. Not creating InputAction paths constants.");
                 return;
             }
-            
+
             string subClassName = "InputActions";
             string targetPath = $"{inputManager.generatedConstantsFolder}/{className + subClassName}.cs";
 
@@ -43,7 +43,7 @@ namespace PrimeInputActions
             List<string> fieldNames = inputActionPaths
                 .Select(it => it.Replace("/", "_"))
                 .ToList();
-        
+
             string classCode = CreateClassCode(subClassName, inputActionPaths, fieldNames);
             Directory.CreateDirectory(inputManager.generatedConstantsFolder);
             File.WriteAllText(targetPath, classCode, Encoding.UTF8);
@@ -54,7 +54,7 @@ namespace PrimeInputActions
                 Debug.Log("Generated file " + targetPath);
             }
         }
-        
+
         private static string CreateClassCode(string subClassName, List<string> constantValues, List<string> fieldNames = null)
         {
             string newline = System.Environment.NewLine;
