@@ -58,20 +58,6 @@ PrimeInputActions solves (a) by using a priority queue and cancellation (see cod
 - In the InputManager's inspector, set the defaultInputActionAsset
 - You can now call `InputManager.GetInputAction`
 
-## (Optional) Generate Constants
-- Use the corresponding menu item to create C# constants for your InputActions.
-    - Using constants instead of strings enables auto-completion, avoids typos, and makes refactoring easier.
-    - Example: `InputManager.GetInputAction(R.InputActions.ui_cancel)`
-- The InputManager has a flag `generateConstantsOnResourceChange`. When set to true, then saving the defaultInputActionAsset will also trigger the generation of constants.
-- The path where the generated code will be saved is also specified in the InputManager.
-
-## (Optional) Copy InputActionAsset to Application.persistentDataPath
-- The InputManager has a flag to specify whether the InputActionAsset should be copied to [Application.persistentDataPath](https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html).
-- If set to true, then the Asset will be saved to this location if it does not exist there yet.
-- Furthermore, the InputActionAsset will be loaded from this location if possible.
-
-This enables to persist changed InputActions at runtime. Users could modify bindings to their preferences.
-
 ## Subscribe to InputActions
 Simple exmaple:
 ```

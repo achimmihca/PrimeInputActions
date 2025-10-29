@@ -13,16 +13,6 @@ namespace PrimeInputActions
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         static void Init()
         {
-            if (Application.isEditor
-                && Application.isPlaying)
-            {
-                InputManager inputManager = InputManager.Instance;
-                if (inputManager != null
-                    && inputManager.copyInputActionAssetToPersistentDataPath)
-                {
-                    inputManager.DeleteInputActionAssetFile();
-                }
-            }
             inputActionAsset = null;
             pathToInputAction.Clear();
         }
@@ -68,43 +58,17 @@ namespace PrimeInputActions
             {
                 if (inputActionAsset == null)
                 {
-                    if (copyInputActionAssetToPersistentDataPath)
-                    {
-                        string absoluteFilePath = GetInputActionAssetFilePath();
-                        if (!File.Exists(absoluteFilePath))
-                        {
-                            SaveInputActionAssetToFile(defaultInputActionAsset, absoluteFilePath);
-                        }
-                        inputActionAsset = LoadInputActionAssetFromFile(absoluteFilePath);
-                    }
-                    else
-                    {
-                        inputActionAsset = defaultInputActionAsset;
-                    }
+                    inputActionAsset = defaultInputActionAsset;
                     inputActionAsset.Enable();
                 }
 
                 return inputActionAsset;
             }
         }
-        
+
         public InputActionAsset defaultInputActionAsset;
         
-        /**
-         * If true, defaultInputActionAsset will be copied to Application.persistentDataPath such that users can edit it to their preferences.
-         */
-        public bool copyInputActionAssetToPersistentDataPath;
-        public string relativeInputActionAssetInPersistentDataPath = "InputActions.inputactions";
-        
-        public bool generateConstantsOnResourceChange;
-        public string generatedConstantsFolder = "Assets/GeneratedScripts";
-        
         public bool useDontDestroyOnLoad;
-        
-        public bool logInfoInEditMode;
-        public bool logInfoInPlayMode = true;
-        public bool LogInfoNow => Application.isPlaying && logInfoInPlayMode 
-                                  || !Application.isPlaying && logInfoInEditMode;
 
         protected virtual void Awake()
         {
@@ -113,68 +77,6 @@ namespace PrimeInputActions
             {
                 return;
             }
-        }
-
-        private void SaveInputActionAssetToFile(InputActionAsset theInputActionAsset, string absoluteFilePath)
-        {
-            if (LogInfoNow)
-            {
-                Debug.Log($"Saving InputActionAsset to '{absoluteFilePath}'");
-            }
-            
-            try
-            {
-                // Create parent directories recursively.
-                Directory.CreateDirectory(Path.Combine(absoluteFilePath, ".."));
-                File.WriteAllText(absoluteFilePath, theInputActionAsset.ToJson(), Encoding.UTF8);
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"Error saving default InputActionAsset to '{absoluteFilePath}'");
-                Debug.LogException(ex);
-            }
-        }
-
-        private InputActionAsset LoadInputActionAssetFromFile(string absoluteFilePath)
-        {
-            if (LogInfoNow)
-            {
-                Debug.Log($"Loading InputActionAsset from '{absoluteFilePath}'");
-            }
-
-            try
-            {
-                string inputActionMapJson = File.ReadAllText(absoluteFilePath, Encoding.UTF8);
-                return InputActionAsset.FromJson(inputActionMapJson);
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"Error loading InputActionAsset from '{absoluteFilePath}'. Using default InputActionAsset instead.");
-                Debug.LogException(ex);
-                return defaultInputActionAsset;
-            }
-        }
-
-        private void DeleteInputActionAssetFile()
-        {
-            string absoluteFilePath = GetInputActionAssetFilePath();
-            try
-            {
-                if (File.Exists(absoluteFilePath))
-                {
-                    File.Delete(absoluteFilePath);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"Error deleting InputActionAsset '{absoluteFilePath}'");
-                Debug.LogException(ex);
-            }        
-        }
-        
-        private string GetInputActionAssetFilePath()
-        {
-            return Application.persistentDataPath + "/" + relativeInputActionAssetInPersistentDataPath;
         }
 
         public static ObservableCancelablePriorityInputAction GetInputAction(string path)
